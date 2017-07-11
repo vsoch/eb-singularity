@@ -1,0 +1,28 @@
+BootStrap: docker
+From: centos
+
+
+%post
+    export EASYBUILD_VERSION="3.3.0"
+
+    # need to install some basic tools like gcc inorder to use eb to build any apps
+    yum groupinstall -y "Development Tools"
+
+    # eb python script depends upon which 
+    yum install which -y
+
+    yum -y install epel-release
+    yum -y install python-pip
+
+    yum -y install environment-modules	
+    pip install --upgrade pip
+    pip install -U setuptools
+    pip install easybuild==$EASYBUILD_VERSION
+
+%runscript 
+    eval "$@"
+
+%test
+    eb --version
+
+
