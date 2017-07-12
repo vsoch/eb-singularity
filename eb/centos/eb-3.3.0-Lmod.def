@@ -1,0 +1,45 @@
+# Author: Shahzeb Siddiqui
+
+BootStrap: docker
+From: centos
+
+
+%post
+    export EASYBUILD_VERSION="3.3.0"  
+
+    # need to install some basic tools like gcc inorder to use eb to build any apps
+    yum groupinstall -y "Development Tools"
+
+    # eb python script depends upon which
+    yum install which -y
+
+   
+    yum -y install epel-release
+    yum -y install python-pip
+
+    # needed for installing dependencies from keyring
+    yum -y install python-devel
+  
+    # needed for installing keyring
+    yum -y install openssl-devel
+
+    yum -y install Lmod
+    pip install --upgrade pip
+    pip install -U setuptools
+    pip install easybuild==$EASYBUILD_VERSION
+
+	
+    # optional Python packages
+    pip install GitPython
+    pip install graphviz
+    pip install python-graph-dot
+
+    # Github integration with eb
+    pip install keyring
+    pip install keyrings.alt
+%runscript 
+    eval "$@"
+
+%test
+    eb --version
+
