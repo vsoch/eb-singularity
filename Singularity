@@ -19,7 +19,8 @@ From: shahzebsiddiqui/easybuild
 		export EASYBUILD_TMPDIR=/scratch/tmp
 		export EASYBUILD_MODULE_NAMING_SCHEME=HierarchicalMNS
 		module use /app/modules/all/Core
- 	        eb binutils-2.26.eb --robot
+ 	        eb M4-1.4.17.eb 
+		rm -rf /scratch
 		exit 
  
 %runscript
@@ -28,7 +29,8 @@ From: shahzebsiddiqui/easybuild
 %environment
     source /etc/profile
     module use /app/modules/all/Core
-    module load binutils/2.26
+    module load M4/1.4.17
 
 
-
+%label
+AUTHOR Shahzeb Siddiqui <shahzebmsiddiqui@gmail.com>
