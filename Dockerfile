@@ -6,9 +6,10 @@ RUN  yum update -y && \
      yum install -y which wget && \
      yum install -y epel-release && \
      yum install -y python-pip python-devel openssl-devel Lmod && \
+
      # need this for --package to work to generate RPM	
-     yum install ruby ruby-devel rubygems -y && \
-     gem install fpm && \
+     #yum install ruby ruby-devel rubygems -y && \
+     #gem install fpm && \
 
      pip install --upgrade pip && \
      pip install setuptools && \
