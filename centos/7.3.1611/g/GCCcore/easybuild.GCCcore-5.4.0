@@ -1,5 +1,5 @@
 BootStrap: shub
-From: easybuilders/eb-singularity:centos-7.3.1611
+From: shahzebsiddiqui/eb-singularity:centos-7.3.1611
 
 %post
 su - easybuild

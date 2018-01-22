@@ -1,5 +1,5 @@
 BootStrap: shub
-From: easybuilders/eb-singularity:GCCcore-5.4.0
+From: shahzebsiddiqui/eb-singularity:GCCcore-5.4.0
 
 %post
 su - easybuild
